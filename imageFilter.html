@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Filter: Hue-rotate()</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+			body{
+			margin: 0;
+		}
+		#inp{
+			position: fixed;
+			top: 5%;
+			left: 50%;
+			transform: translate(-50%);
+			width: 80%;
+			height: auto;
+			opacity: 70%;
+			z-index: 999;
+		}
+		#image{
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+		}
+
+	</style>
+	</head>
+<body>
+	
+	<input type="range" min="0" max="360" value="0" id="inp">
+	
+	<img src="https://i.imgur.com/5rdCg3M.gif" alt="" id="image">
+	<script>
+		function continueRolling(){
+			let input = document.getElementById('inp');
+			input.value++;
+			if(input.value >= 360){
+				input.value = 0;
+			}
+			document.getElementById('image').style.filter = `hue-rotate(${input.value}deg)`;
+			
+		}
+		window.onload = ()=>{
+			setInterval(continueRolling,50);
+		}
+	</script>
+	
+	
+	
+</body>
+</html>
